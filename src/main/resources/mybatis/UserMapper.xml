@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="josefeus.shiro.start.mapper.UserMapper">
+    <insert id="insertUser">
+        INSERT INTO `users` (username, nickname, password, salt)
+        VALUES (#{username}, #{nickname}, #{password}, #{salt})
+    </insert>
+
+    <select id="selectUserByName" resultType="josefeus.shiro.start.model.User">
+        SELECT * FROM `users`
+        WHERE username = #{username}
+    </select>
+
+    <select id="getUserById" resultType="josefeus.shiro.start.model.User">
+        SELECT * FROM `users`
+        WHERE id = #{id}
+    </select>
+</mapper>
