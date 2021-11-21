@@ -26,7 +26,8 @@ public class ShiroStartApplicationListener implements ApplicationListener<Contex
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         String username = "admin";
-        User user = userMapper.selectUserByName(username);String password = new Md5Hash("admin").toHex();
+        User user = userMapper.selectUserByName(username);
+        String password = new Md5Hash("admin").toHex();
         log.info("username: " + username + ", password: " + password);
         if (user == null) {
             String salt = UUIDUtils.getUUID();
